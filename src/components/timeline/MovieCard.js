@@ -3,6 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 import { colors } from '../../styles/colors';
 
 export const MovieCard = ({ title, year, phase, order }) => {
+  /**
+   * Renderiza una tarjeta que muestra información sobre una película del Universo Cinematográfico de Marvel (MCU). 
+   * La tarjeta incluye el título de la película, el año de lanzamiento, la fase a la que pertenece y su orden en la cronología del 
+   * MCU. El diseño de la tarjeta se adapta al tema de colores definido en el proyecto, con un estilo limpio y moderno para resaltar 
+   * la información clave de cada película.
+   */
   return (
     <View style={styles.container}>
       <View style={styles.orderContainer}>

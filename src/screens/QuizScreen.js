@@ -27,7 +27,7 @@ const QuizScreen = () => {
       <View style={styles.container}>
         <Header title="Resultado Final" showBackButton={true} />
         <View style={styles.resultContainer}>
-          <Text style={styles.resultTitle}>🏆 Tu puntuación</Text>
+          <Text style={styles.resultTitle}>Tu puntuación</Text>
           <Text style={styles.resultScore}>{score} / {totalQuestions}</Text>
           <Text style={styles.resultPercentage}>{percentage}%</Text>
           <MarvelButton
@@ -36,7 +36,7 @@ const QuizScreen = () => {
             variant="primary"
           />
           <MarvelButton
-            title="← Volver al inicio"
+            title=" Volver al inicio"
             onPress={() => navigation.navigate('Home')}
             variant="secondary"
           />

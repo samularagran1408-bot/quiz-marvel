@@ -10,6 +10,12 @@ import { colors } from '../styles/colors';
 const Stack = createStackNavigator();
 
 export const AppNavigator = () => {
+
+  /**
+   * Renderiza el componente de navegación de la aplicación. 
+   * Utiliza el componente StackNavigator de React Navigation para crear una navegación fluida 
+   * y dinámica entre las diferentes pantallas.
+   */
   return (
     <NavigationContainer>
       <Stack.Navigator

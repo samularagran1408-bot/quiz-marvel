@@ -15,6 +15,10 @@ export const QuizOption = ({ text, isSelected, isCorrect, isIncorrect, onSelect 
     return styles.defaultText;
   };
 
+  /**
+   * Renderiza una opción de la lista de opciones del Quiz. Si el usuario selecciona la opción, se activa el evento onSelect. 
+   * El estilo de la opción se adapta a su estado (correcto, incorrecto, seleccionado) y al tema de colores definido en el proyecto.
+   */
   return (
     <TouchableOpacity
       style={[styles.container, getOptionStyle()]}

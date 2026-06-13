@@ -10,6 +10,11 @@ export const Header = ({ title, showBackButton = false }) => {
     navigation.goBack();
   };
 
+  /**
+   * Renderiza el componente Header con un título centrado y un botón de retroceso opcional a la izquierda. 
+   * Si showBackButton es true, se muestra el botón de retroceso que permite al usuario volver a la pantalla anterior. 
+   * El diseño del header se adapta al tema de colores definido en el proyecto.
+   */
   return (
     <View style={styles.container}>
       {showBackButton ? (
