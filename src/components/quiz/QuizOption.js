@@ -1,0 +1,62 @@
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { colors } from '../../styles/colors';
+
+export const QuizOption = ({ text, isSelected, isCorrect, isIncorrect, onSelect }) => {
+  const getOptionStyle = () => {
+    if (isCorrect) return styles.correctOption;
+    if (isIncorrect) return styles.incorrectOption;
+    if (isSelected) return styles.selectedOption;
+    return styles.defaultOption;
+  };
+
+  const getTextStyle = () => {
+    if (isCorrect || isIncorrect || isSelected) return styles.selectedText;
+    return styles.defaultText;
+  };
+
+  return (
+    <TouchableOpacity
+      style={[styles.container, getOptionStyle()]}
+      onPress={onSelect}
+      activeOpacity={0.7}
+    >
+      <Text style={[styles.text, getTextStyle()]}>{text}</Text>
+    </TouchableOpacity>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+    borderRadius: 12,
+    marginVertical: 6,
+    borderWidth: 1,
+  },
+  defaultOption: {
+    backgroundColor: colors.backgroundCard,
+    borderColor: colors.border,
+  },
+  selectedOption: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  correctOption: {
+    backgroundColor: colors.success,
+    borderColor: colors.success,
+  },
+  incorrectOption: {
+    backgroundColor: colors.error,
+    borderColor: colors.error,
+  },
+  text: {
+    fontSize: 14,
+  },
+  defaultText: {
+    color: colors.text,
+  },
+  selectedText: {
+    color: colors.text,
+    fontWeight: '600',
+  },
+});
