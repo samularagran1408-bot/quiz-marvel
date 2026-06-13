@@ -9,6 +9,12 @@ import { colors } from './src/styles/colors';
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  /**
+   * Renderiza el componente de navegación de la aplicación. 
+   * Utiliza el componente StackNavigator de React Navigation para crear una navegación fluida 
+   * y dinámica entre las diferentes pantallas.
+   */
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -25,6 +31,10 @@ export default function App() {
           },
         }}
       >
+
+        /**
+         * Definición de las pantallas de la aplicación.
+         */
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'MARVEL QUIZ' }} />
         <Stack.Screen name="Timeline" component={TimelineScreen} options={{ title: 'Cronología MCU' }} />
         <Stack.Screen name="Quiz" component={QuizScreen} options={{ title: 'Quiz Marvel' }} />

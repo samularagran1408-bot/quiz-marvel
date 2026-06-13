@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   list: {
-    paddingVertical: 16,
+    paddingVertical: 10,
   },
 });
 

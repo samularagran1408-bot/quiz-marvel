@@ -20,12 +20,12 @@ const ResultScreen = () => {
         <Text style={styles.percentage}>{percentage}%</Text>
         <MarvelButton
           title="Jugar de nuevo"
-          onPress={() => navigation.navigate('Quiz')}
+          onPress={() => navigation.navigate('Quiz')} /** Navega a la pantalla de Quiz */
           variant="primary"
         />
         <MarvelButton
           title="Volver al inicio"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('Home')} /** Navega a la pantalla de Home */
           variant="secondary"
         />
       </View>
