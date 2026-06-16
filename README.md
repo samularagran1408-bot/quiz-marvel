@@ -28,7 +28,7 @@ Aplicación móvil interactiva que permite explorar la cronología del MCU y pon
 ### 1. Clonar el repositorio
 ```bash
 git clone https://github.com/samularagran1408-bot/quiz-marvel.git
-cd marvel-quiz-final
+cd quiz-marvel
 ```
 
 ### 2. Instalar dependencias

@@ -31,10 +31,6 @@ export default function App() {
           },
         }}
       >
-
-        /**
-         * Definición de las pantallas de la aplicación.
-         */
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'MARVEL QUIZ' }} />
         <Stack.Screen name="Timeline" component={TimelineScreen} options={{ title: 'Cronología MCU' }} />
         <Stack.Screen name="Quiz" component={QuizScreen} options={{ title: 'Quiz Marvel' }} />

@@ -22,7 +22,7 @@ export const QuizOption = ({ text, isSelected, isCorrect, isIncorrect, onSelect 
   return (
     <TouchableOpacity
       style={[styles.container, getOptionStyle()]}
-      onPress={onSelect}
+      onPress={onSelect} /** Evento de presión del botón de opción, este componente es el hijo y QuizScreen es el padre */
       activeOpacity={0.7}
     >
       <Text style={[styles.text, getTextStyle()]}>{text}</Text>

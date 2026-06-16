@@ -19,7 +19,6 @@ export const Header = ({ title, showBackButton = false }) => {
     <View style={styles.container}>
       {showBackButton ? (
         <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <Text style={styles.backText}>GoBack</Text>
         </TouchableOpacity>
       ) : (
         <View style={styles.placeholder} />

@@ -32,4 +32,46 @@ export const quizQuestions = [
     options: ['Iron Man', 'Capitán América', 'Thor', 'Hulk'],
     correctAnswer: 'Iron Man',
   },
+  {
+    id: 4,
+    question: '¿En que fase debutaron los mutantes en el MCU?',
+    options: ['Fase 1', 'Fase 3', 'Fase 4', 'Fase 5'],
+    correctAnswer: 'Fase 5',
+  },
+  {
+    id: 5,
+    question: '__________ fue el primer villano de los vengadores.',
+    options: ['Thanos', 'Loki', 'Ultron', 'Red Skull'],
+    correctAnswer: 'Loki',
+  },
+  {
+    id: 6,
+    question: '¿Cuál fue el primer gran crossover de superheroes en el cine?',
+    options: ['Avengers: Infinity War', 'Guardianes de la Galaxia', 'Avengers: Age of Ultron', 'Avengers'],
+    correctAnswer: 'Avengers',
+  },
+  {
+    id: 7,
+    question: '¿Cuál es la película más taquillera del MCU?',
+    options: ['Avengers: Endgame', 'Avengers: Infinity War', 'Spider-Man: Homecoming', 'Avengers: Age of Ultron'],
+    correctAnswer: 'Avengers: Endgame',
+  },
+  {
+    id: 8,
+    question: '¿Cuál es la primera película de la Fase 6 del MCU?',
+    options: ['Fantastic Four: First Steps', 'Thor: Love and Thunder', 'Iron Heart', 'Captain America: Brave New World'],
+    correctAnswer: 'Fantastic Four: First Steps',
+  },
+  {
+    id: 9,
+    question: '¿Cuál gema del infinito es la que Thanos la obtiene del Coleccionista?',
+    options: ['La Gema del Poder', 'La Gema de la Realidad', 'La Gema de la Mente', 'La Gema de la Vida'],
+    correctAnswer: 'La Gema de la Realidad',
+  },
+  {
+    id: 10,
+    question: 'Villano para la siguiente película de Avengers:',
+    options: ['Galactus', 'Ultrón', 'Dr. Doom', 'Captain Hydra'],
+    correctAnswer: 'Dr. Doom',
+  },
 ];
