@@ -27,7 +27,7 @@ const TimelineScreen = () => {
             order={item.order}
           />
         )}
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={true}
         contentContainerStyle={styles.list}
       />
     </View>
