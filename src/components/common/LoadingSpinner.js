@@ -2,6 +2,11 @@ import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { colors } from '../../styles/colors';
 
+/**
+ * LoadingSpinner - Componente de carga en pantalla.
+ * 
+ * @returns {React.ReactNode} - Componente de carga en pantalla.
+ */
 export const LoadingSpinner = () => {
   /**
    * Renderiza un indicador de carga en pantalla mientras se está cargando la pantalla.

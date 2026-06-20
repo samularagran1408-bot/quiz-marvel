@@ -1,40 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './src/screens/HomeScreen';
-import TimelineScreen from './src/screens/TimelineScreen';
-import QuizScreen from './src/screens/QuizScreen';
-import { colors } from './src/styles/colors';
+import MainNavigator from './src/navigation/MainNavigator';
+import SplashScreen from './src/components/common/SplashScreen';
+import { initSounds } from './src/services/sounds';
 
-const Stack = createStackNavigator();
-
+/**
+ * App - Componente principal de la aplicación.
+ * 
+ * @returns {React.ReactNode} - Componente de la aplicación.
+ */
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
 
   /**
-   * Renderiza el componente de navegación de la aplicación. 
-   * Utiliza el componente StackNavigator de React Navigation para crear una navegación fluida 
-   * y dinámica entre las diferentes pantallas.
+   * Inicializa los sonidos de la aplicación.
+   */
+  useEffect(() => {
+    initSounds();
+  }, []);
+
+  /**
+   * Si showSplash es true, muestra la pantalla de splash.
+   */
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
+
+  /**
+   * Renderiza el componente NavigationContainer con el MainNavigator como pantalla principal.
    */
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: colors.text,
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          cardStyle: {
-            backgroundColor: colors.background,
-          },
-        }}
-      >
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'MARVEL QUIZ' }} />
-        <Stack.Screen name="Timeline" component={TimelineScreen} options={{ title: 'Cronología MCU' }} />
-        <Stack.Screen name="Quiz" component={QuizScreen} options={{ title: 'Quiz Marvel' }} />
-      </Stack.Navigator>
+      <MainNavigator />
     </NavigationContainer>
   );
 }

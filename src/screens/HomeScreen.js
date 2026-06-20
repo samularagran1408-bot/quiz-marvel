@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MarvelButton } from '../components/common/MarvelButton';
 import { colors } from '../styles/colors';
@@ -7,11 +7,12 @@ import { colors } from '../styles/colors';
 const HomeScreen = () => {
   const navigation = useNavigation();
 
-  const navigateToTimeline = () => navigation.navigate('Timeline');
-  const navigateToQuiz = () => navigation.navigate('Quiz');
-
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.scrollContainer}
+      contentContainerStyle={styles.scrollContent}
+      showsVerticalScrollIndicator={true}
+    >
       <View style={styles.header}>
         <Text style={styles.title}>MARVEL</Text>
         <Image
@@ -21,34 +22,48 @@ const HomeScreen = () => {
         />
         <Text style={styles.subtitle}>Universo Cinematográfico</Text>
       </View>
+
+      <Text style={styles.description}>
+        Explora la cronología del MCU, pon a prueba tus conocimientos con el quiz
+        y sigue tu progreso con estadísticas y logros.
+      </Text>
+
       <View style={styles.buttons}>
         <MarvelButton
           title="Ver Cronología"
-          onPress={navigateToTimeline}
+          onPress={() => navigation.navigate('Timeline')}
           variant="primary"
         />
         <MarvelButton
           title="Jugar Quiz"
-          onPress={navigateToQuiz}
+          onPress={() => navigation.navigate('Quiz')}
           variant="secondary"
         />
+        <MarvelButton
+          title="Mis Estadísticas"
+          onPress={() => navigation.navigate('Stats')}
+          variant="primary"
+        />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  scrollContainer: {
     flex: 1,
-    justifyContent: 'space-between',
     backgroundColor: colors.background,
-    paddingVertical: 60,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    paddingVertical: 40,
     paddingHorizontal: 20,
+    paddingBottom: 60,
   },
   header: {
     alignItems: 'center',
-    marginTop: 40,
-    gap: 35,
+    marginTop: 20,
+    gap: 24,
   },
   title: {
     fontSize: 48,
@@ -61,17 +76,24 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.text,
     textAlign: 'center',
-    marginTop: 10,
-    fontWeight: 700,
+    fontWeight: '700',
     textDecorationLine: 'underline',
   },
+  description: {
+    fontSize: 16,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    lineHeight: 24,
+    marginVertical: 30,
+    paddingHorizontal: 10,
+  },
   buttons: {
-    marginBottom: 40,
+    gap: 12,
   },
   logo: {
-    width: 450,
-    height: 320,
-    marginBottom: 10,
+    width: '100%',
+    maxWidth: 320,
+    height: 220,
   },
 });
 

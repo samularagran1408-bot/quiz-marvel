@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { QuizOption } from '../components/quiz/QuizOption';
-import { Header } from '../components/common/Header';
 import { MarvelButton } from '../components/common/MarvelButton';
+import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { useQuizLogic } from '../hooks/useQuizLogic';
+import { achievements } from '../data/achievements';
 import { colors } from '../styles/colors';
 
 const QuizScreen = () => {
@@ -17,53 +18,72 @@ const QuizScreen = () => {
     showResult,
     answerStatus,
     totalQuestions,
+    isRestored,
+    newAchievements,
     handleAnswer,
     resetQuiz,
   } = useQuizLogic();
 
+  if (!isRestored) {
+    return <LoadingSpinner />;
+  }
+
   if (showResult) {
-    const percentage = (score / totalQuestions) * 100;
+    const percentage = Math.round((score / totalQuestions) * 100);
+    const earnedAchievements = achievements.filter((a) =>
+      newAchievements.includes(a.id)
+    );
+
     return (
-      <View style={styles.container}>
-        <Header title="Resultado Final" showBackButton={true} />
+      <ScrollView style={styles.container} contentContainerStyle={styles.resultScroll}>
         <View style={styles.resultContainer}>
           <Text style={styles.resultTitle}>Tu puntuación</Text>
-          <Text style={styles.resultScore}>{score} / {totalQuestions}</Text>
+          <Text style={styles.resultScore}>
+            {score} / {totalQuestions}
+          </Text>
           <Text style={styles.resultPercentage}>{percentage}%</Text>
+
+          {earnedAchievements.length > 0 && (
+            <View style={styles.achievementsBox}>
+              <Text style={styles.achievementsTitle}>¡Nuevos logros!</Text>
+              {earnedAchievements.map((achievement) => (
+                <Text key={achievement.id} style={styles.achievementItem}>
+                  {achievement.icon} {achievement.title}
+                </Text>
+              ))}
+            </View>
+          )}
+
+          <MarvelButton title="Jugar de nuevo" onPress={resetQuiz} variant="primary" />
           <MarvelButton
-            title="Jugar de nuevo"
-            onPress={resetQuiz}
-            variant="primary"
-          />
-          <MarvelButton
-            title=" Volver al inicio"
-            onPress={() => navigation.navigate('Home')}
+            title="Ver estadísticas"
+            onPress={() => navigation.navigate('Stats')}
             variant="secondary"
           />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <Header title={`Quiz (${currentQuestionIndex + 1}/${totalQuestions})`} showBackButton={true} />
-      <View style={styles.content}>
-        <Text style={styles.question}>{currentQuestion.question}</Text>
-        <View style={styles.options}>
-          {currentQuestion.options.map((option) => (
-            <QuizOption
-              key={option}
-              text={option}
-              isSelected={selectedAnswer === option}
-              isCorrect={answerStatus === 'correct' && selectedAnswer === option}
-              isIncorrect={answerStatus === 'incorrect' && selectedAnswer === option}
-              onSelect={() => !selectedAnswer && handleAnswer(option)}
-            />
-          ))}
-        </View>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.progress}>
+        Pregunta {currentQuestionIndex + 1} de {totalQuestions}
+      </Text>
+      <Text style={styles.question}>{currentQuestion.question}</Text>
+      <View style={styles.options}>
+        {currentQuestion.options.map((option) => (
+          <QuizOption
+            key={option}
+            text={option}
+            isSelected={selectedAnswer === option}
+            isCorrect={answerStatus === 'correct' && selectedAnswer === option}
+            isIncorrect={answerStatus === 'incorrect' && selectedAnswer === option}
+            onSelect={() => !selectedAnswer && handleAnswer(option)}
+          />
+        ))}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -73,8 +93,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   content: {
-    flex: 1,
     padding: 20,
+    paddingBottom: 40,
+  },
+  progress: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    marginBottom: 16,
   },
   question: {
     fontSize: 22,
@@ -84,13 +110,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   options: {
-    flex: 1,
+    gap: 4,
+  },
+  resultScroll: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    padding: 20,
   },
   resultContainer: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    paddingVertical: 40,
   },
   resultTitle: {
     fontSize: 28,
@@ -107,7 +136,27 @@ const styles = StyleSheet.create({
   resultPercentage: {
     fontSize: 24,
     color: colors.textSecondary,
-    marginBottom: 40,
+    marginBottom: 30,
+  },
+  achievementsBox: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 24,
+    width: '100%',
+    borderLeftWidth: 4,
+    borderLeftColor: colors.primary,
+  },
+  achievementsTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.primary,
+    marginBottom: 8,
+  },
+  achievementItem: {
+    fontSize: 16,
+    color: colors.text,
+    marginVertical: 4,
   },
 });
 
