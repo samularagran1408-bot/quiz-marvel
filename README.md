@@ -2,6 +2,17 @@
 
 Aplicación móvil interactiva que permite explorar la cronología del MCU y poner a prueba tus conocimientos sobre el universo Marvel.
 
+## Problemática a Resolver
+"Los fanáticos del MCU carecen de una herramienta digital que les permita consultar fácilmente la cronología completa de películas y, al mismo tiempo, poner a prueba sus conocimientos sobre el universo Marvel de manera interactiva y entretenida." - Samuel Lara Grandas
+
+- **Contexto del problema:**
+Los fanáticos del Universo Cinematográfico de Marvel (MCU) enfrentan dos dificultades principales:
+- 1. Desconocimiento de la cronología: Con más de 30 películas y series, es difícil saber el orden correcto para verlas (orden de estreno vs. orden cronológico).
+- 2. Falta de conocimiento profundo: Muchos fans creen saberlo todo sobre el MCU, pero no tienen forma de medir o poner a prueba sus conocimientos de manera interactiva.
+
+## Socución:
+Una aplicación móvil que resuelve la desinformación sobre la cronología del MCU y permite a los fans medir y mejorar sus conocimientos a través de un quiz interactivo.
+
 ## Características
 
 - **Cronología MCU**: Lista completa de películas del Universo Cinematográfico de Marvel ordenadas cronológicamente
