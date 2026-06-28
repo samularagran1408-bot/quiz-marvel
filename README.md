@@ -58,3 +58,12 @@ Para hacer esto, sigue los siguientes pasos:
 5. Espera a que se revisen y se aprueben tus cambios.
 
 Recuerda que siempre es bueno revisar el código antes de realizar cambios. Esto ayuda a evitar conflictos y mejorar la calidad del código.
+
+## Enlaces Figma
+```text
+https://www.figma.com/design/VHMUxHl9PIO3xeUs0wYVUq/Marvel-App?node-id=0-1&t=7BjwEGFqTPNPURaB-1
+```
+
+```text
+https://www.figma.com/proto/VHMUxHl9PIO3xeUs0wYVUq/Marvel-App?node-id=1-147&p=f&t=7BjwEGFqTPNPURaB-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A147
+```
