@@ -30,7 +30,7 @@ const HomeScreen = () => {
 
       <View style={styles.buttons}>
         <MarvelButton
-          title="Ver Cronología"
+          title="Ver Fases(Movies)"
           onPress={() => navigation.navigate('Timeline')}
           variant="primary"
         />

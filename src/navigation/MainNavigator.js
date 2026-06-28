@@ -45,7 +45,7 @@ const MainNavigator = () => {
         name="Timeline"
         component={TimelineScreen}
         options={{
-          title: 'Cronología',
+          title: 'Fases',
           tabBarIcon: tabIcon('🎬'),
         }}
       />
